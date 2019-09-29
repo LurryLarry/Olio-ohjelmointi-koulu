@@ -16,7 +16,7 @@ public class Lämpötilamuunnin {
 		
 		
 		GridLayout sijoittelija = new GridLayout(2,2);
-		ikkuna.getContentPane().setLayout(sijoittelija);
+		ikkuna.setLayout(sijoittelija);
 		
 		JLabel celciusOtsikko = new JLabel();
 		celciusOtsikko.setText("Celcius");
@@ -43,10 +43,10 @@ public class Lämpötilamuunnin {
 			}
 		});
 		
-		ikkuna.getContentPane().add(celciusOtsikko);
-		ikkuna.getContentPane().add(syöte);
-		ikkuna.getContentPane().add(nappula);
-		ikkuna.getContentPane().add(fahrenheitOtsikko);
+		ikkuna.add(celciusOtsikko);
+		ikkuna.add(syöte);
+		ikkuna.add(nappula);
+		ikkuna.add(fahrenheitOtsikko);
 		
 		
 		
