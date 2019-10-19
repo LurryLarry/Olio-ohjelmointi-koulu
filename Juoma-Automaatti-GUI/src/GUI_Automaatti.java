@@ -168,46 +168,52 @@ public class GUI_Automaatti extends JFrame {
 		mntmAsetaKaakaonMr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				ja.getKaakao();
 				String kysyArvo = JOptionPane.showInputDialog("Anna uusi arvo: ");
 				int numeraalinenArvo = Integer.parseInt(kysyArvo);
 				ja.setKaakao(numeraalinenArvo);
 				
 				kaakaoMaara.setText("Kaakaota: " + ja.getKaakao());
+				kaakaoMaara.setForeground(Color.BLACK);
+
 				if(ja.getKaakao() < 20) {
 					kaakaoMaara.setForeground(Color.RED);
+				} else {
+					kaakaoMaara.setForeground(Color.BLACK);
 				}
-				
 			}
 		});
 		
 		mntmAsetaTeenMr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				ja.getTee();
-				
+						
 				String kysyArvo = JOptionPane.showInputDialog("Anna uusi arvo: ");
 				int numeraalinenArvo = Integer.parseInt(kysyArvo);
 				ja.setTee(numeraalinenArvo);
 				
 				teeMaara.setText("Teetä: " + ja.getTee());
+				
 				if(ja.getTee() < 20) {
 					teeMaara.setForeground(Color.RED);
+				} else {
+					teeMaara.setForeground(Color.BLACK);
 				}
 			}
 		});
 		
 		mntmAsetaKahvinMr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ja.getKahvi();
+				
 				String kysyArvo = JOptionPane.showInputDialog("Anna uusi arvo: ");
 				int numeraalinenArvo = Integer.parseInt(kysyArvo);
 				
 				ja.setKahvi(numeraalinenArvo);
 				
 				kahviMaara.setText("Kahvia: " + ja.getKahvi());
+				
 				if(ja.getKahvi() < 20) {
 					kahviMaara.setForeground(Color.RED);
+				} else {
+					kahviMaara.setForeground(Color.BLACK);
 				}
 				
 				
@@ -256,8 +262,7 @@ public class GUI_Automaatti extends JFrame {
 		JButton kahviNappi = new JButton("Kahvi");
 		kahviNappi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				ja.getKahvi();
+
 				ja.tilaaKahvi();
 				
 				
@@ -276,7 +281,7 @@ public class GUI_Automaatti extends JFrame {
 		JButton btnNewButton_1 = new JButton("Tee");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ja.getTee();
+				
 				ja.tilaaTee();
 				
 				teeMaara.setText("Teetä: " + ja.getTee());
@@ -294,8 +299,7 @@ public class GUI_Automaatti extends JFrame {
 		JButton kaakaoNappi = new JButton("Kaakao");
 		kaakaoNappi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				ja.getKahvi();
+
 				ja.tilaaKaakao();
 				
 				kaakaoMaara.setText("Kaakaota: " + ja.getKaakao());
