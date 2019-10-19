@@ -62,6 +62,7 @@ public class GUI_Automaatti extends JFrame {
 		setTitle("Kahviautomaatti GUI v. 1.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 465, 705);
+		setLocationRelativeTo(null);
 		
 		JMenuBar menuBar_1 = new JMenuBar();
 		setJMenuBar(menuBar_1);

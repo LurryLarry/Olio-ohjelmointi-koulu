@@ -42,6 +42,7 @@ public class Versiotiedot {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setLocationRelativeTo(null);
 		
 		JLabel lblJuomaautomaattiV = new JLabel("JUOMA-AUTOMAATTI V. 1.0");
 		lblJuomaautomaattiV.setFont(new Font("Arial Black", Font.PLAIN, 16));

@@ -39,6 +39,7 @@ public class Ohje {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setLocationRelativeTo(null);
 		
 		JLabel lblOtaHiiri = new JLabel("1. Ota hiiri k\u00E4teen");
 		lblOtaHiiri.setBounds(137, 111, 121, 14);
