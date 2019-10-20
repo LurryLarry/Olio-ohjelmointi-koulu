@@ -63,50 +63,49 @@ public class GUI_Automaatti extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 465, 705);
 		setLocationRelativeTo(null);
-		
+
 		JMenuBar menuBar_1 = new JMenuBar();
 		setJMenuBar(menuBar_1);
-		
+
 		JMenu mnNewMenu = new JMenu("Yll\u00E4pito");
 		menuBar_1.add(mnNewMenu);
-		
+
 		JMenuItem mntmAsetaKahvinMr = new JMenuItem("Aseta kahvin m\u00E4\u00E4r\u00E4");
-		
-		
+
 		mnNewMenu.add(mntmAsetaKahvinMr);
-		
+
 		JMenuItem mntmAsetaTeenMr = new JMenuItem("Aseta teen m\u00E4\u00E4r\u00E4");
-		
+
 		mnNewMenu.add(mntmAsetaTeenMr);
-		
+
 		JMenuItem mntmAsetaKaakaonMr = new JMenuItem("Aseta kaakaon m\u00E4\u00E4r\u00E4");
-	
+
 		mnNewMenu.add(mntmAsetaKaakaonMr);
-		
+
 		JMenuItem mntmTallennaAutomaatinTila_1 = new JMenuItem("Tallenna automaatin tila");
-		
+
 		mnNewMenu.add(mntmTallennaAutomaatinTila_1);
-		
+
 		JMenuItem mntmLataaAutomaatti_1 = new JMenuItem("Lataa automaatti");
-		
+
 		mnNewMenu.add(mntmLataaAutomaatti_1);
-		
+
 		JMenuItem mntmLopeta = new JMenuItem("Lopeta");
-		
+
 		mnNewMenu.add(mntmLopeta);
-		
+
 		JMenu mnNewMenu_1 = new JMenu("Tietoa ohjelmasta");
 		menuBar_1.add(mnNewMenu_1);
-		
+
 		JMenuItem mntmVersiotiedot = new JMenuItem("Versiotiedot");
 		mntmVersiotiedot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				Versiotiedot.versioIkkuna();
 			}
 		});
 		mnNewMenu_1.add(mntmVersiotiedot);
-		
+
 		JMenuItem mntmNewMenuItem = new JMenuItem("Ohje");
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -115,140 +114,154 @@ public class GUI_Automaatti extends JFrame {
 		});
 		mnNewMenu_1.add(mntmNewMenuItem);
 
-	 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		
-		
-		
-		
+
 		JLabel lblKahvi = new JLabel("Kahvi");
 		lblKahvi.setFont(new Font("Sitka Heading", Font.BOLD | Font.ITALIC, 14));
 		lblKahvi.setBounds(70, 190, 46, 14);
 		contentPane.add(lblKahvi);
-		
+
 		JLabel lblNewLabel = new JLabel("Tee");
 		lblNewLabel.setFont(new Font("Sitka Heading", Font.BOLD | Font.ITALIC, 14));
 		lblNewLabel.setBounds(70, 382, 46, 14);
 		contentPane.add(lblNewLabel);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("Kaakao");
 		lblNewLabel_1.setFont(new Font("Sitka Heading", Font.BOLD | Font.ITALIC, 14));
 		lblNewLabel_1.setBounds(70, 581, 46, 14);
 		contentPane.add(lblNewLabel_1);
-		
+
 		JLabel kahviMaara = new JLabel("Kahvia: " + ja.getKahvi());
 		kahviMaara.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		kahviMaara.setBounds(220, 104, 79, 14);
 		contentPane.add(kahviMaara);
-		
+
 		JLabel teeMaara = new JLabel("Teet\u00E4: " + ja.getTee());
 		teeMaara.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		teeMaara.setBounds(220, 295, 79, 14);
 		contentPane.add(teeMaara);
-		
+
 		JLabel kaakaoMaara = new JLabel("Kaakaota: " + ja.getKaakao());
 		kaakaoMaara.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		kaakaoMaara.setBounds(220, 499, 79, 14);
 		contentPane.add(kaakaoMaara);
-		
-		
+
 		mntmLopeta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				System.exit(0);
-				
+
 			}
 		});
-		
-		
+
 		mntmAsetaKaakaonMr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				String kysyArvo = JOptionPane.showInputDialog("Anna uusi arvo: ");
+
+				if (kysyArvo == null || kysyArvo.isEmpty()) {
+					return;
+				}
+
 				int numeraalinenArvo = Integer.parseInt(kysyArvo);
+
 				ja.setKaakao(numeraalinenArvo);
-				
+
 				kaakaoMaara.setText("Kaakaota: " + ja.getKaakao());
 				kaakaoMaara.setForeground(Color.BLACK);
 
-				if(ja.getKaakao() < 20) {
+				if (ja.getKaakao() < 20) {
 					kaakaoMaara.setForeground(Color.RED);
 				} else {
 					kaakaoMaara.setForeground(Color.BLACK);
 				}
 			}
 		});
-		
+
 		mntmAsetaTeenMr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						
+
 				String kysyArvo = JOptionPane.showInputDialog("Anna uusi arvo: ");
+
+				if (kysyArvo == null || kysyArvo.isEmpty()) { // käsittelee tyhjän ja cancelauksen
+					return;
+				}
+
 				int numeraalinenArvo = Integer.parseInt(kysyArvo);
 				ja.setTee(numeraalinenArvo);
-				
+
 				teeMaara.setText("Teetä: " + ja.getTee());
-				
-				if(ja.getTee() < 20) {
+
+				if (ja.getTee() < 20) {
 					teeMaara.setForeground(Color.RED);
 				} else {
 					teeMaara.setForeground(Color.BLACK);
 				}
 			}
 		});
-		
+
 		mntmAsetaKahvinMr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				String kysyArvo = JOptionPane.showInputDialog("Anna uusi arvo: ");
+
+				if (kysyArvo == null || kysyArvo.isEmpty()) { // käsittelee tyhjän ja cancelauksen
+					return;
+				}
+
 				int numeraalinenArvo = Integer.parseInt(kysyArvo);
-				
+
 				ja.setKahvi(numeraalinenArvo);
-				
+
 				kahviMaara.setText("Kahvia: " + ja.getKahvi());
-				
-				if(ja.getKahvi() < 20) {
+
+				if (ja.getKahvi() < 20) {
 					kahviMaara.setForeground(Color.RED);
 				} else {
 					kahviMaara.setForeground(Color.BLACK);
 				}
-				
-				
+
 			}
 		});
-		
+
 		mntmLataaAutomaatti_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				try {
 					JuomaAutomaatti uusi = Sarjallistamista.lueTiedostosta();
 					System.out.println(uusi); // console.loggaus auttoi tajuamaan miten tämä lataaminen toimii
 					uusi.getKahvi();
 					kahviMaara.setText("Kahvia: " + uusi.getKahvi());
-					
+					if (uusi.getKahvi() < 20) {
+						kahviMaara.setForeground(Color.RED);
+					}
+
 					uusi.getTee();
 					teeMaara.setText("Teetä: " + uusi.getTee());
-		
+					if (uusi.getTee() < 20) {
+						teeMaara.setForeground(Color.RED);
+					}
+
 					uusi.getKaakao();
 					kaakaoMaara.setText("Kaakaota: " + uusi.getKaakao());
-					
-					
+					if (uusi.getKaakao() < 20) {
+						kaakaoMaara.setForeground(Color.RED);
+					}
+
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				
-				
+
 			}
 		});
-		
+
 		mntmTallennaAutomaatinTila_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				try {
 					Sarjallistamista.kirjoitaTiedostoon(ja);
 				} catch (IOException e1) {
@@ -257,36 +270,34 @@ public class GUI_Automaatti extends JFrame {
 				}
 			}
 		});
-		
-		
+
 		JButton kahviNappi = new JButton("Kahvi");
 		kahviNappi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				ja.tilaaKahvi();
-				
-				
+
 				kahviMaara.setText("Kahvia: " + ja.getKahvi());
-				
-				if(ja.getKahvi() < 20) {
+
+				if (ja.getKahvi() < 20) {
 					kahviMaara.setForeground(Color.RED);
 				}
-				
+
 			}
 		});
 		kahviNappi.setIcon(new ImageIcon("img\\coffee.jpg"));
 		kahviNappi.setBounds(29, 44, 122, 135);
 		contentPane.add(kahviNappi);
-		
+
 		JButton btnNewButton_1 = new JButton("Tee");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				ja.tilaaTee();
-				
+
 				teeMaara.setText("Teetä: " + ja.getTee());
-				
-				if(ja.getTee() < 20) {
+
+				if (ja.getTee() < 20) {
 					teeMaara.setForeground(Color.RED);
 				}
 			}
@@ -295,25 +306,24 @@ public class GUI_Automaatti extends JFrame {
 		btnNewButton_1.setIcon(new ImageIcon("img\\tea.jpg"));
 		btnNewButton_1.setBounds(29, 232, 122, 140);
 		contentPane.add(btnNewButton_1);
-		
+
 		JButton kaakaoNappi = new JButton("Kaakao");
 		kaakaoNappi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				ja.tilaaKaakao();
-				
+
 				kaakaoMaara.setText("Kaakaota: " + ja.getKaakao());
-				
-				if(ja.getKaakao() < 20) {
+
+				if (ja.getKaakao() < 20) {
 					kaakaoMaara.setForeground(Color.RED);
 				}
 			}
 		});
-		
+
 		kaakaoNappi.setIcon(new ImageIcon("img\\cocoa.jpg"));
 		kaakaoNappi.setBounds(29, 443, 122, 127);
 		contentPane.add(kaakaoNappi);
 	}
-	
-	
+
 }
