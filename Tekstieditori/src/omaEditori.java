@@ -185,7 +185,8 @@ public class omaEditori extends JFrame {
 
 					PrintWriter writer = new PrintWriter(uusiTiedosto);
 					String sisalto = editorPane.getText();
-
+					
+					writer.println(sisalto);
 					writer.flush();
 					writer.close();
 				} catch (Exception e2) {
@@ -226,7 +227,8 @@ public class omaEditori extends JFrame {
 
 					PrintWriter writer = new PrintWriter(uusiTiedosto);
 					String sisalto = editorPane.getText();
-
+					
+					writer.println(sisalto);
 					writer.flush();
 					writer.close();
 				} catch (Exception e2) {
